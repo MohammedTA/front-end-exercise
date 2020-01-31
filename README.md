@@ -1,16 +1,16 @@
 # NYTimes
 
-Angular 7 web application to sow all NewYork times articles, with filters, orders and view article details.
+Angular 7 web application to show all New York Times articles, with filters, orders and view article's details.
 
 ## Getting Started
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release here](https://github.com/MohammedTA/ionic-wordpress/archive/master.zip)
-* Clone the repo: `git clone https://github.com/MohammedTA/ionic-wordpress.git`
-* Fork the repo
+To begin using this example, choose one of the following options to get started:
+* [Download the latest release here](https://github.com/MohammedTA/front-end-exercise/archive/master.zip).
+* Clone the repo: `git clone https://github.com/MohammedTA/front-end-exercise.git`.
+* Fork the repo.
 
 ## Requirements
-You need node.js with npm on your machine.
+You need node.js with npm installed on your machine.
 
 ## Installation
 This app will install all required dependencies automatically. Just start the commands below in the root folder where you stored the package.
