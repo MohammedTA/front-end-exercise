@@ -19,7 +19,7 @@ export class ApiService extends BaseService {
     apiKey: string = environment.ApiKey;
 
     constructor(public http: HttpClient,
-                private loaderService: LoaderService) {
+        private loaderService: LoaderService) {
         super();
     }
 
@@ -56,12 +56,12 @@ export class ApiService extends BaseService {
         params += `&api-key=${this.apiKey}&sort=${sort}&page=${page}`;
 
         return this.http.get(`${this.url + endpoint}?${params}`, httpOptions)
-        .pipe(
-            map(response => {
-                this.loaderService.hide();
-                return this.extractData(response);
-            })
-        );
+            .pipe(
+                map(response => {
+                    this.loaderService.hide();
+                    return this.extractData(response);
+                })
+            );
     }
 
     post(endpoint: string, body: any, reqOpts?: any) {
@@ -73,16 +73,16 @@ export class ApiService extends BaseService {
         };
 
         return this.http.post(this.url + endpoint, body, httpOptions)
-        .pipe(
-            map(response => {
-                this.loaderService.hide();
-                return this.extractData(response);
-            }),
-            catchError(error => {
-                this.loaderService.hide();
-                return this.handleError(error);
-            })
-        );
+            .pipe(
+                map(response => {
+                    this.loaderService.hide();
+                    return this.extractData(response);
+                }),
+                catchError(error => {
+                    this.loaderService.hide();
+                    return this.handleError(error);
+                })
+            );
     }
 
     put(endpoint: string, body: any, reqOpts?: any) {

@@ -20,10 +20,10 @@ export class ArticleComponent implements OnInit {
               private route: ActivatedRoute,
   ) {
     this.route.params.subscribe(params => {
-    articleService.get(params.id).subscribe(data => {
-      this.article = data.articles[0];
+      articleService.get(params.id).subscribe(data => {
+        this.article = data.articles[0];
+      });
     });
-  });
   }
 
   ngOnInit() {

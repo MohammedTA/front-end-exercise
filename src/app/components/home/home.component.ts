@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
 import { environment } from 'src/environments/environment';
 import { fromEvent } from 'rxjs';
-import { map, filter, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Response } from 'src/app/models/response.model';
 
 declare const $: any;
@@ -56,15 +56,15 @@ export class HomeComponent implements OnInit {
       }),
       debounceTime(1000),
       distinctUntilChanged()
-      ).subscribe((text: string) => {
-        this.isSearching = true;
-        this.p = 0;
-        this.articleService.filter(text).subscribe(data => {
-          console.log(data);
-          this.results = data;
-          this.isSearching = false;
-        });
+    ).subscribe((text: string) => {
+      this.isSearching = true;
+      this.p = 0;
+      this.articleService.filter(text).subscribe(data => {
+        console.log(data);
+        this.results = data;
+        this.isSearching = false;
       });
+    });
   }
 
 }

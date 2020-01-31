@@ -9,13 +9,13 @@ export class Article {
         this.abstract = abstract;
         this.id = id;
         this.content = content;
-     }
-     title: string;
-     abstract: string;
-     content: string;
-     publishDate: Date;
-     author: string;
-     thumbnail: any;
-     image: any;
-     id: string;
-  }
+    }
+    title: string;
+    abstract: string;
+    content: string;
+    publishDate: Date;
+    author: string;
+    thumbnail: any;
+    image: any;
+    id: string;
+}

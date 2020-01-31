@@ -1,21 +1,18 @@
 <div class="container" *ngIf="article">
-    <h2 class="my-4">{{article.title}}
-        <small>{{article.abstract}}</small>
-    </h2>
-   <div class="card-footer w-100 text-muted">
-        {{article.author}} | {{article.publishDate | date:'MMM d, y, h:mm:ss a'}}
+  <h2 class="my-4">{{article.title}}
+    <small>{{article.abstract}}</small>
+  </h2>
+  <div class="card-footer w-100 text-muted">
+    {{article.author}} | {{article.publishDate | date:'MMM d, y, h:mm:ss a'}}
+  </div>
+  <div class="row">
+    <div class="col-md-8" *ngIf="article.image">
+      <img class="img-fluid" src="{{url + article.image.url}}" alt="">
     </div>
-          <div class="row">
-        <div class="col-md-8" *ngIf="article.image">
-          <img class="img-fluid" src="{{url + article.image.url}}" alt="">
-        </div>
-    
-        <div class="{{article.image ? 'col-md-4' : col-md-12}}">
-          <p>
-              {{article.content}}
-          </p>
-
-        </div>
-    
-      </div>
+    <div class="{{article.image ? 'col-md-4' : col-md-12}}">
+      <p>
+        {{article.content}}
+      </p>
+    </div>
+  </div>
 </div>

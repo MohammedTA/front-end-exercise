@@ -13,7 +13,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { HomeComponent } from './components/home/home.component';
 import { ArticleService } from './services/article.service';
 import { ArticleComponent } from './components/article/article.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormsModule,
     NgxPaginationModule
   ],
-  entryComponents:[
+  entryComponents: [
     ArticleComponent
   ],
   providers: [LoaderService, ApiService, ArticleService],

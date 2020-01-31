@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
     selector: 'app-loader',
     templateUrl: './loader.component.html',
     styleUrls: ['./loader.component.scss']
-  })
+})
 export class LoaderComponent implements OnInit {
     loaded = false;
     private subscription: Subscription;
@@ -15,7 +15,7 @@ export class LoaderComponent implements OnInit {
     ngOnInit() {
         this.subscription = this.loaderService.loaderState
             .subscribe((state: LoaderState) => {
-                    this.loaded = state.loaded;
+                this.loaded = state.loaded;
             });
     }
     OnDestroy() {
