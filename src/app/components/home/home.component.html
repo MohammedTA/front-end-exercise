@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <input #searchInput class="form-control mr-sm-2" type="text" placeholder="Start searching for an article">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-secondary btn-sm"
+        (click)="orderArticles(order === 'newest' ? 'oldest' : 'newest')">{{order === 'newest' ? 'Oldest' : 'Newest'}}
+        first</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row" *ngIf="isSearching">
+    <div class="col-12 text-center">
+      <h4>Searching ... </h4>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="results && results.articles.length">
+    <div class="col-md-12">
+      <div class="card flex-row flex-wrap"
+        *ngFor="let article of results.articles  | paginate: { itemsPerPage: 10, currentPage: p, totalItems: results.resultCount }">
+        <div class="card-header border-0" *ngIf="article.thumbnail">
+          <img src="{{url + article.thumbnail.url}}">
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">{{article.title}}</h4>
+          <p class="card-text">{{article.abstract}}</p>
+          <a routerLink="/article/{{getArticleId(article.id)}}" class="btn btn-primary">Read more</a>
+        </div>
+        <div class="w-100"></div>
+        <div class="card-footer w-100 text-muted">
+          {{article.author}} | {{article.publishDate | date:'MMM d, y, h:mm:ss a'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!results || results.articles.length === 0" class="alert alert-warning" role="alert">
+    No results found!
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" *ngIf="results && results.articles.length">
+    <div class="col-md-12">
+      <pagination-controls maxSize="9" (pageChange)="pageChanged($event)">
+      </pagination-controls>
+    </div>
+  </div>
+</div>
